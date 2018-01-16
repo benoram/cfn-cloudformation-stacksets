@@ -7,17 +7,17 @@ This will create the roles necessary to use StackSets to deploy CF across multip
 ## Prerequisites
 [AWS CLI](http://docs.aws.amazon.com/rekognition/latest/dg/setup-awscli.html)
 
-## Setup
-By convention, scripts like this that are deployed account-wide are deployed to us-east-1 (N. Virginia)
+## Setup roles
+Before you can deploy stacksets, you need to deploy roles. The CloudFormation script in this repo creates the necessary roles and permissions to support StackSets.
 
+Using bash, run the following commands
 ```
 aws cloudformation create-stack --region us-east-1 --stack-name aCloudFormationStackSets --template-body file://./cfn-cloudformation-stacksets.yaml --capabilities CAPABILITY_NAMED_IAM
 ```
 
 ## To deploy stacks across all regions for a given account
 
-Using bash... (via terminal on my Mac)
-
+Using bash, run the following commands
 ```
 # Create the stack set. This will be the container for instances created below. cfn-myscript.yaml is the name of your cloudformation script you want to run everywhere.
 aws cloudformation create-stack-set --stack-set-name MyStackSet --template-body file://./cfn-myscript.yaml 
