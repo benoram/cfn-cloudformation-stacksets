@@ -5,7 +5,7 @@ Setup CloudTrail for the account
 This will create the roles necessary to use StackSets to deploy CF across multiple regions in the same account.
 
 ## Prerequisites
-[AWS CLI](http://docs.aws.amazon.com/rekognition/latest/dg/setup-awscli.html)
+[AWS CLI](https://docs.aws.amazon.com/cli/latest/reference/)
 
 ## Setup roles
 Before you can deploy stacksets, you need to deploy roles. The CloudFormation script in this repo creates the necessary roles and permissions to support StackSets.
