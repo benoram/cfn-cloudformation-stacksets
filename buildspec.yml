@@ -1,0 +1,21 @@
+version: 0.1
+
+phases:
+    install:
+        commands:
+            - aws --version
+    build:
+        commands:
+            - aws --version
+
+    post_build:
+        commands:
+            - aws s3 sync . "s3://${BUCKET_NAME}/${BUCKET_PATH}" --delete --sse AES256 --exclude "*" --include "cfn-*.yaml" --include "*.md"
+            
+artifacts:
+    files:
+        - '**/*'
+    base-directory: ''
+    discard-paths: true
+            
+            

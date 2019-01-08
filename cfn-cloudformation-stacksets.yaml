@@ -1,5 +1,7 @@
 AWSTemplateFormatVersion: 2010-09-09
+
 Description: Roles to support CloudFormation StackSets
+
 Resources:
   AdministrationRole:
     Type: AWS::IAM::Role
@@ -24,6 +26,7 @@ Resources:
                   - sts:AssumeRole
                 Resource:
                   - !Sub "arn:aws:iam::${AWS::AccountId}:role/AWSCloudFormationStackSetExecutionRole"
+
   ExecutionRole:
     Type: AWS::IAM::Role
     Properties:
@@ -40,4 +43,3 @@ Resources:
       Path: /
       ManagedPolicyArns:
         - arn:aws:iam::aws:policy/AdministratorAccess
-
